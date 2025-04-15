@@ -599,7 +599,7 @@ section.show {
 /* Rooms Section */
 .rooms-hero {
     position: relative;
-    height: 90vh;
+    height: 100vh;
     min-height: 400px;
     background-size: cover;
     background-position: center;
@@ -919,7 +919,7 @@ header.scrolled nav ul li a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, #020335, #020335, #B8860B);
+    background: radial-gradient(circle, #020335, #020335, #020335, #B8860B);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -932,7 +932,7 @@ header.scrolled nav ul li a {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
     color: transparent;
-    background: linear-gradient(90deg, #FFDF00, #F4E5C2, var(--gold));
+    background: linear-gradient(90deg, #FFDF00, #faedce, var(--gold));
     background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
