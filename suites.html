@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Primary Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- SEO Title and Description -->
+    <title>
+      Luxury Suites & Rooms | Serenity Heights | 5-Star Hotel in Benin & Lagos
+    </title>
+    <meta
+      name="description"
+      content="Experience our exquisite luxury suites & rooms at Serenity Heights, Benin & Lagos' premier 5-star hotel. Presidential suites, executive rooms & romantic getaways with premium amenities."
+    />
+
+    <meta
+      name="description"
+      content="Serenity Heights - Benin & Lagos' premier 5-star luxury hotel offering world-class suites, fine dining, spa experiences, and exceptional service. Best hotel in Benin for business & leisure."
+    />
+
+    <!-- Keyword Optimization -->
+    <meta
+      name="keywords"
+      content="luxury hotel Benin, best hotel in Benin, 5-star hotel Benin, Serenity Heights Benin, hotel in Lagos, luxury hotel Lagos, best hotels in Lagos, premium hotel Benin, top hotels in Benin, Benin luxury accommodation, Lagos luxury suites, Benin city hotels, luxury resort Benin, executive hotel Benin, business hotel Lagos, romantic hotel Benin, honeymoon suites Benin, weekend getaway Lagos, Benin 5-star resort, Lagos premium hotel"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.serenityheightsbenin.com" />
+
+    <!-- Author and Copyright -->
+    <meta name="author" content="Serenity Heights Luxury Hotels" />
+    <meta name="copyright" content="Serenity Heights" />
+
+    <!-- Geo and Location Meta Tags -->
+    <meta name="geo.region" content="NG-BE" />
+    <meta name="geo.placename" content="Benin City, Lagos" />
+    <meta name="geo.position" content="6.3350;5.6037" />
+    <meta name="ICBM" content="6.3350, 5.6037" />
+
+    <!-- Open Graph / Social Media -->
+    <meta
+      property="og:title"
+      content="Serenity Heights | #1 Luxury Hotel in Benin & Lagos"
+    />
+    <meta
+      property="og:description"
+      content="Experience unparalleled 5-star luxury at Benin & Lagos' most exclusive hotel - Serenity Heights. World-class suites, dining & amenities."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.serenityheightsbenin.com" />
+    <meta
+      property="og:image"
+      content="https://www.serenityheightsbenin.com/assets/images/social-preview.webp"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Serenity Heights" />
+    <meta property="og:locale" content="en_NG" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Serenity Heights | #1 Luxury Hotel in Benin & Lagos"
+    />
+    <meta
+      name="twitter:description"
+      content="Benin & Lagos' premier 5-star luxury hotel with world-class suites, dining & spa experiences. Book your luxury stay today!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.serenityheightsbenin.com/assets/images/social-preview.webp"
+    />
+    <meta name="twitter:site" content="@SerenityHeightsNG" />
+
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Hotel",
+        // ... keep existing hotel info ...
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Room Types",
+          "itemListElement": [
+            {
+              "@type": "OfferCatalog",
+              "name": "Royal Suite",
+              "itemListElement": {
+                "@type": "Offer",
+                "name": "Royal Suite",
+                "price": "100000",
+                "priceCurrency": "NGN"
+              }
+            },
+            // Add all room types similarly
+          ]
+        }
+      }
+
+      {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://example.com"
+          },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Rooms & Suites"
+          }]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/icon.jpg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <style>
+    .page-transition-out {
+      animation: fadeOut 0.8s ease forwards;
+    }
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+      }
+    }
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: var(--gold);
+      z-index: 1001;
+      transition: width 0.1s ease;
+    }
+  </style>
+  <body>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-to-top">
+      <i class="fas fa-chevron-up"></i>
+      <div class="progress-bar"></div>
+    </div>
+
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="preloader-logo">Serenity Heights</div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+      <div class="container header-container">
+        <a href="index.html" class="logo">Serenity Heights</a>
+        <button
+          class="menu-toggle"
+          id="mobile-menu"
+          aria-label="Toggle navigation"
+        >
+          <span class="menu-bar top-bar"></span>
+          <span class="menu-bar middle-bar"></span>
+          <span class="menu-bar bottom-bar"></span>
+        </button>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html#experiences">Experiences</a></li>
+            <li><a href="index.html#catering">Catering</a></li>
+            <li><a href="suites.html">Rooms & Suites</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Rooms Hero -->
+    <section
+      class="rooms-hero hidden"
+      style="background-image: url('assets/images/rooms/hallway.webp')"
+    >
+      <div class="rooms-hero-overlay"></div>
+      <div class="rooms-hero-content">
+        <h1>Rooms & Suites</h1>
+        <p>
+          Each accommodation is a sanctuary of comfort, designed with meticulous
+          attention to detail.
+        </p>
+      </div>
+    </section>
+
+    <!-- Rooms Grid -->
+    <section class="container rooms-section">
+      <div class="rooms-grid hidden">
+        <!-- Royal Suite -->
+        <div class="room-card">
+          <img
+            src="assets/images/rooms/room-1.webp"
+            data-src="assets/images/rooms/room-1.webp"
+            alt="Royal Suite"
+            class="lazy room-img"
+            loading="lazy"
+          />
+          <div class="room-content">
+            <h3>Royal Suite</h3>
+            <p>
+              Opulent accommodation with grand living room, dining area, and
+              panoramic city views. Features a king-size bed and luxury marble
+              bathroom.
+            </p>
+            <div class="room-features">
+              <span><i class="fas fa-bed"></i> King Bed</span>
+              <span><i class="fas fa-ruler-combined"></i> 120 m²</span>
+              <span><i class="fas fa-user-friends"></i> 2-4 Guests</span>
+            </div>
+            <div class="room-price">₦100,000 per night</div>
+            <a
+              href="https://calendly.com/ovenserisosa/30min"
+              class="btn btn-primary"
+              >Book Now</a
+            >
+          </div>
+        </div>
+
+        <!-- Presidential Suite -->
+        <div class="room-card">
+          <img
+            src="assets/images/rooms/room-2.webp"
+            data-src="assets/images/rooms/room-2.webp"
+            alt="Presidential Suite"
+            class="lazy room-img"
+            loading="lazy"
+          />
+          <div class="room-content">
+            <h3>Presidential Suite</h3>
+            <p>
+              Expansive suite with separate living area, office space, and
+              spa-like bathroom with soaking tub and rain shower.
+            </p>
+            <div class="room-features">
+              <span><i class="fas fa-bed"></i> King Bed</span>
+              <span><i class="fas fa-ruler-combined"></i> 90 m²</span>
+              <span><i class="fas fa-user-friends"></i> 2-3 Guests</span>
+            </div>
+            <div class="room-price">₦100,000 per night</div>
+            <a
+              href="https://calendly.com/ovenserisosa/30min"
+              class="btn btn-primary"
+              >Book Now</a
+            >
+          </div>
+        </div>
+
+        <!-- Celebrity Suite -->
+        <div class="room-card">
+          <img
+            src="assets/images/rooms/room-3.webp"
+            data-src="assets/images/rooms/room-3.webp"
+            alt="Celebrity Suite"
+            class="room-img"
+          />
+          <div class="room-content">
+            <h3>Celebrity Suite</h3>
+            <p>
+              Designed for privacy and luxury, featuring a private entrance,
+              personal butler service, and VIP amenities.
+            </p>
+            <div class="room-features">
+              <span><i class="fas fa-bed"></i> King Bed</span>
+              <span><i class="fas fa-ruler-combined"></i> 120 m²</span>
+              <span><i class="fas fa-user-friends"></i> 2-4 Guests</span>
+            </div>
+            <div class="room-price">₦90,000 per night</div>
+            <a
+              href="https://calendly.com/ovenserisosa/30min"
+              class="btn btn-primary"
+              >Book Now</a
+            >
+          </div>
+        </div>
+
+        <!-- Deluxe Suite -->
+        <div class="room-card">
+          <img
+            src="assets/images/rooms/room-4.webp"
+            data-src="assets/images/rooms/room-4.webp"
+            alt="Deluxe Room"
+            class="lazy room-img"
+            loading="lazy"
+          />
+          <div class="room-content">
+            <h3>Deluxe Room</h3>
+            <p>
+              Spacious room with elegant decor, comfortable seating area, and
+              premium amenities for a relaxing stay.
+            </p>
+            <div class="room-features">
+              <span><i class="fas fa-bed"></i> King Bed</span>
+              <span><i class="fas fa-ruler-combined"></i> 45 m²</span>
+              <span><i class="fas fa-user-friends"></i> 2 Guests</span>
+            </div>
+            <div class="room-price">₦80,000 per night</div>
+            <a
+              href="https://calendly.com/ovenserisosa/30min"
+              class="btn btn-primary"
+              >Book Now</a
+            >
+          </div>
+        </div>
+
+        <!-- Family-Special Suite -->
+        <div class="room-card">
+          <img
+            src="assets/images/rooms/fam-room.avif"
+            data-src="assets/images/rooms/fam-room.avif"
+            alt="Family Suite"
+            class="room-img"
+          />
+          <div class="room-content">
+            <h3>Family-Special Suite</h3>
+            <p>
+              Perfect for families, featuring two connecting bedrooms, a shared
+              living space, and kid-friendly amenities.
+            </p>
+            <div class="room-features">
+              <span><i class="fas fa-bed"></i> King Bed</span>
+              <span><i class="fas fa-ruler-combined"></i> 200 m²</span>
+              <span><i class="fas fa-user-friends"></i> 4-6 Guests</span>
+            </div>
+            <div class="room-price">₦100,000 per night</div>
+            <a
+              href="https://calendly.com/ovenserisosa/30min"
+              class="btn btn-primary"
+              >Book Now</a
+            >
+          </div>
+        </div>
+
+        <!-- Executive Suite -->
+        <div class="room-card">
+          <img
+            src="assets/images/rooms/room-5.webp"
+            data-src="assets/images/rooms/room-5.webp"
+            alt="Executive Suite"
+            class="lazy room-img"
+            loading="lazy"
+          />
+          <div class="room-content">
+            <h3>Executive Suite</h3>
+            <p>
+              Sophisticated suite with separate living area, work desk, and
+              premium amenities for business travelers.
+            </p>
+            <div class="room-features">
+              <span><i class="fas fa-bed"></i> King Bed</span>
+              <span><i class="fas fa-ruler-combined"></i> 60 m²</span>
+              <span><i class="fas fa-user-friends"></i> 2 Guests</span>
+            </div>
+            <div class="room-price">₦80,000 per night</div>
+            <a
+              href="https://calendly.com/ovenserisosa/30min"
+              class="btn btn-primary"
+              >Book Now</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-col">
+            <h3>Serenity Heights</h3>
+            <div class="contact-detail">
+              <a
+                href="https://maps.google.com/?q=11-13+Palm+Avenue,+Victoria+Island,+Lagos,+Nigeria"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-map-marker-alt"></i>
+              </a>
+              <p>11-13 Palm Avenue, Victoria Island, Lagos, Nigeria</p>
+            </div>
+            <div class="contact-details">
+              <div class="contact-detail">
+                <a href="tel:+2347086137054"><i class="fas fa-phone"></i></a>
+                <p>0708 613 7054</p>
+              </div>
+              <div class="contact-detail">
+                <a
+                  href="https://wa.me/2347086137054"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="fab fa-whatsapp"></i
+                ></a>
+                <p>07086137054</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Connect</h3>
+            <div class="social-links">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://twitter.com/Ovenseri_AI"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                href="https://linkedin.com/in/elikiba"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Serenity Heights | Designed by
+            <span> &nbsp; Elikiba&trade; &nbsp; </span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
