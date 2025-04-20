@@ -349,211 +349,211 @@ function lazyLoadImages() {
     lazyImages.forEach(img => observer.observe(img));
   }
 
-  function initExperienceCards() {
-    const experienceCards = document.querySelectorAll('.experience-card');
-    const fullscreenViewer = document.querySelector('.experience-fullscreen');
+  // function initExperienceCards() {
+  //   const experienceCards = document.querySelectorAll('.experience-card');
+  //   const fullscreenViewer = document.querySelector('.experience-fullscreen');
     
-    experienceCards.forEach(card => {
-      const images = card.querySelectorAll('.experience-images img');
-      const prevBtn = card.querySelector('.exp-prev');
-      const nextBtn = card.querySelector('.exp-next');
-      const dotsContainer = card.querySelector('.exp-dots');
-      let currentIndex = 0;
-      let autoPlayInterval;
+  //   experienceCards.forEach(card => {
+  //     const images = card.querySelectorAll('.experience-images img');
+  //     const prevBtn = card.querySelector('.exp-prev');
+  //     const nextBtn = card.querySelector('.exp-next');
+  //     const dotsContainer = card.querySelector('.exp-dots');
+  //     let currentIndex = 0;
+  //     let autoPlayInterval;
   
-      // Initialize dots
-      dotsContainer.innerHTML = '';
-      images.forEach((_, index) => {
-        const dot = document.createElement('span');
-        dot.classList.add('exp-dot');
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', (e) => {
-          e.stopPropagation();
-          goToImage(index);
-        });
-        dotsContainer.appendChild(dot);
-      });
-      const dots = card.querySelectorAll('.exp-dot');
+  //     // Initialize dots
+  //     dotsContainer.innerHTML = '';
+  //     images.forEach((_, index) => {
+  //       const dot = document.createElement('span');
+  //       dot.classList.add('exp-dot');
+  //       if (index === 0) dot.classList.add('active');
+  //       dot.addEventListener('click', (e) => {
+  //         e.stopPropagation();
+  //         goToImage(index);
+  //       });
+  //       dotsContainer.appendChild(dot);
+  //     });
+  //     const dots = card.querySelectorAll('.exp-dot');
   
-      // Card functions
-      function updateImage() {
-        images.forEach((img, idx) => {
-          img.classList.toggle('active', idx === currentIndex);
-        });
-        dots.forEach((dot, idx) => {
-          dot.classList.toggle('active', idx === currentIndex);
-        });
-      }
+  //     // Card functions
+  //     function updateImage() {
+  //       images.forEach((img, idx) => {
+  //         img.classList.toggle('active', idx === currentIndex);
+  //       });
+  //       dots.forEach((dot, idx) => {
+  //         dot.classList.toggle('active', idx === currentIndex);
+  //       });
+  //     }
   
-      function goToImage(index) {
-        currentIndex = index;
-        updateImage();
-        resetAutoPlay();
-      }
+  //     function goToImage(index) {
+  //       currentIndex = index;
+  //       updateImage();
+  //       resetAutoPlay();
+  //     }
   
-      function nextImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateImage();
-        resetAutoPlay();
-      }
+  //     function nextImage() {
+  //       currentIndex = (currentIndex + 1) % images.length;
+  //       updateImage();
+  //       resetAutoPlay();
+  //     }
   
-      function prevImage() {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateImage();
-        resetAutoPlay();
-      }
+  //     function prevImage() {
+  //       currentIndex = (currentIndex - 1 + images.length) % images.length;
+  //       updateImage();
+  //       resetAutoPlay();
+  //     }
   
-      function startAutoPlay() {
-        autoPlayInterval = setInterval(nextImage, 3000);
-      }
+  //     function startAutoPlay() {
+  //       autoPlayInterval = setInterval(nextImage, 3000);
+  //     }
   
-      function stopAutoPlay() {
-        clearInterval(autoPlayInterval);
-      }
+  //     function stopAutoPlay() {
+  //       clearInterval(autoPlayInterval);
+  //     }
   
-      function resetAutoPlay() {
-        stopAutoPlay();
-        startAutoPlay();
-      }
+  //     function resetAutoPlay() {
+  //       stopAutoPlay();
+  //       startAutoPlay();
+  //     }
   
-      // Fullscreen functions
-      function openFullscreen() {
-        const fsImage = fullscreenViewer.querySelector('.fullscreen-image');
-        const fsDots = fullscreenViewer.querySelector('.fs-dots');
-        const fsPrev = fullscreenViewer.querySelector('.fs-prev');
-        const fsNext = fullscreenViewer.querySelector('.fs-next');
+  //     // Fullscreen functions
+  //     function openFullscreen() {
+  //       const fsImage = fullscreenViewer.querySelector('.fullscreen-image');
+  //       const fsDots = fullscreenViewer.querySelector('.fs-dots');
+  //       const fsPrev = fullscreenViewer.querySelector('.fs-prev');
+  //       const fsNext = fullscreenViewer.querySelector('.fs-next');
         
-        // Initialize fullscreen viewer
-        fsDots.innerHTML = '';
-        images.forEach((img, index) => {
-          const dot = document.createElement('span');
-          dot.classList.add('fs-dot');
-          if (index === currentIndex) dot.classList.add('active');
-          dot.addEventListener('click', () => {
-            currentIndex = index;
-            updateFullscreen();
-          });
-          fsDots.appendChild(dot);
-        });
+  //       // Initialize fullscreen viewer
+  //       fsDots.innerHTML = '';
+  //       images.forEach((img, index) => {
+  //         const dot = document.createElement('span');
+  //         dot.classList.add('fs-dot');
+  //         if (index === currentIndex) dot.classList.add('active');
+  //         dot.addEventListener('click', () => {
+  //           currentIndex = index;
+  //           updateFullscreen();
+  //         });
+  //         fsDots.appendChild(dot);
+  //       });
   
-        function updateFullscreen() {
-          fsImage.src = images[currentIndex].src;
-          fsDots.querySelectorAll('.fs-dot').forEach((dot, idx) => {
-            dot.classList.toggle('active', idx === currentIndex);
-          });
-        }
+  //       function updateFullscreen() {
+  //         fsImage.src = images[currentIndex].src;
+  //         fsDots.querySelectorAll('.fs-dot').forEach((dot, idx) => {
+  //           dot.classList.toggle('active', idx === currentIndex);
+  //         });
+  //       }
   
-        fsPrev.addEventListener('click', () => {
-          currentIndex = (currentIndex - 1 + images.length) % images.length;
-          updateFullscreen();
-        });
+  //       fsPrev.addEventListener('click', () => {
+  //         currentIndex = (currentIndex - 1 + images.length) % images.length;
+  //         updateFullscreen();
+  //       });
   
-        fsNext.addEventListener('click', () => {
-          currentIndex = (currentIndex + 1) % images.length;
-          updateFullscreen();
-        });
+  //       fsNext.addEventListener('click', () => {
+  //         currentIndex = (currentIndex + 1) % images.length;
+  //         updateFullscreen();
+  //       });
   
-        // Open viewer
-        fsImage.src = images[currentIndex].src;
-        fullscreenViewer.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
+  //       // Open viewer
+  //       fsImage.src = images[currentIndex].src;
+  //       fullscreenViewer.classList.add('active');
+  //       document.body.style.overflow = 'hidden';
+  //     }
   
-      // Event listeners
-      card.addEventListener('click', (e) => {
-        if (!e.target.closest('.experience-nav')) {
-          openFullscreen();
-        }
-      });
+  //     // Event listeners
+  //     card.addEventListener('click', (e) => {
+  //       if (!e.target.closest('.experience-nav')) {
+  //         openFullscreen();
+  //       }
+  //     });
   
-      prevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        prevImage();
-      });
+  //     prevBtn.addEventListener('click', (e) => {
+  //       e.stopPropagation();
+  //       prevImage();
+  //     });
   
-      nextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        nextImage();
-      });
+  //     nextBtn.addEventListener('click', (e) => {
+  //       e.stopPropagation();
+  //       nextImage();
+  //     });
   
-      card.addEventListener('mouseenter', startAutoPlay);
-      card.addEventListener('mouseleave', stopAutoPlay);
+  //     card.addEventListener('mouseenter', startAutoPlay);
+  //     card.addEventListener('mouseleave', stopAutoPlay);
   
-      // Initialize
-      updateImage();
-    });
+  //     // Initialize
+  //     updateImage();
+  //   });
   
-    // Close fullscreen
-    document.querySelector('.close-fs').addEventListener('click', () => {
-      fullscreenViewer.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-  }
+  //   // Close fullscreen
+  //   document.querySelector('.close-fs').addEventListener('click', () => {
+  //     fullscreenViewer.classList.remove('active');
+  //     document.body.style.overflow = '';
+  //   });
+  // }
 
-function initExperienceCards() {
-    const experienceCards = document.querySelectorAll('.experience-card');
+// function initExperienceCards() {
+//     const experienceCards = document.querySelectorAll('.experience-card');
     
-    experienceCards.forEach(card => {
-      const images = card.querySelectorAll('.experience-images img');
-      const prevBtn = card.querySelector('.exp-prev');
-      const nextBtn = card.querySelector('.exp-next');
-      const dotsContainer = card.querySelector('.exp-dots');
-      let currentImage = 0;
+//     experienceCards.forEach(card => {
+//       const images = card.querySelectorAll('.experience-images img');
+//       const prevBtn = card.querySelector('.exp-prev');
+//       const nextBtn = card.querySelector('.exp-next');
+//       const dotsContainer = card.querySelector('.exp-dots');
+//       let currentImage = 0;
       
-      // Create dots
-      images.forEach((_, index) => {
-        const dot = document.createElement('span');
-        dot.classList.add('exp-dot');
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToImage(index));
-        dotsContainer.appendChild(dot);
-      });
+//       // Create dots
+//       images.forEach((_, index) => {
+//         const dot = document.createElement('span');
+  //       dot.classList.add('exp-dot');
+  //       if (index === 0) dot.classList.add('active');
+  //       dot.addEventListener('click', () => goToImage(index));
+  //       dotsContainer.appendChild(dot);
+  //     });
       
-      const dots = card.querySelectorAll('.exp-dot');
+  //     const dots = card.querySelectorAll('.exp-dot');
       
-      function updateImage() {
-        images.forEach((img, index) => {
-          img.classList.toggle('active', index === currentImage);
-        });
-        dots.forEach((dot, index) => {
-          dot.classList.toggle('active', index === currentImage);
-        });
-      }
+  //     function updateImage() {
+  //       images.forEach((img, index) => {
+  //         img.classList.toggle('active', index === currentImage);
+  //       });
+  //       dots.forEach((dot, index) => {
+  //         dot.classList.toggle('active', index === currentImage);
+  //       });
+  //     }
       
-      function nextImage() {
-        currentImage = (currentImage + 1) % images.length;
-        updateImage();
-      }
+  //     function nextImage() {
+  //       currentImage = (currentImage + 1) % images.length;
+  //       updateImage();
+  //     }
       
-      function prevImage() {
-        currentImage = (currentImage - 1 + images.length) % images.length;
-        updateImage();
-      }
+  //     function prevImage() {
+  //       currentImage = (currentImage - 1 + images.length) % images.length;
+  //       updateImage();
+  //     }
       
-      function goToImage(index) {
-        currentImage = index;
-        updateImage();
-      }
+  //     function goToImage(index) {
+  //       currentImage = index;
+  //       updateImage();
+  //     }
       
-      // Button event listeners
-      if (nextBtn) nextBtn.addEventListener('click', nextImage);
-      if (prevBtn) prevBtn.addEventListener('click', prevImage);
+  //     // Button event listeners
+  //     if (nextBtn) nextBtn.addEventListener('click', nextImage);
+  //     if (prevBtn) prevBtn.addEventListener('click', prevImage);
       
-      // Auto-advance
-      let intervalId;
+  //     // Auto-advance
+  //     let intervalId;
       
-      card.addEventListener('mouseenter', () => {
-        intervalId = setInterval(nextImage, 3000);
-      });
+  //     card.addEventListener('mouseenter', () => {
+  //       intervalId = setInterval(nextImage, 3000);
+  //     });
       
-      card.addEventListener('mouseleave', () => {
-        clearInterval(intervalId);
-      });
+  //     card.addEventListener('mouseleave', () => {
+  //       clearInterval(intervalId);
+  //     });
       
-      // Initialize
-      updateImage();
-    });
-  }
+  //     // Initialize
+  //     updateImage();
+  //   });
+  // }
 
 // Add to script.js
 function initEnhancedExperienceCards() {
