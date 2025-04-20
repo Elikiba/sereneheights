@@ -1,0 +1,21 @@
+{
+    "name": "Serenity Heights",
+    "short_name": "Serenity",
+    "theme_color": "#FFDF00",
+    "background_color": "#020335",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "icons": [
+      {
+        "src": "assets/icon/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "assets/icon/android-chrome-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }

@@ -128,8 +128,30 @@
     />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/icon.jpg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/icon/android-chrome-512x512.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/icon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/icon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/icon/favicon-16x16.png"
+    />
+
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css" />
@@ -156,6 +178,17 @@
     }
   </style>
   <body>
+    <!-- Promo banner -->
+    <div class="promo-banner">
+      <div class="promo-content">
+        <span class="promo-text"
+          >Special Offer: Get 20% off on all suites this season! Use code
+          <strong>SERENE20</strong></span
+        >
+        <button class="close-promo">&times;</button>
+      </div>
+    </div>
+
     <!-- Scroll Progress Bar -->
     <div id="scroll-to-top">
       <i class="fas fa-chevron-up"></i>
@@ -182,6 +215,7 @@
         </button>
         <nav id="nav">
           <ul>
+            <li><a href="index.html#hero">Home</a></li>
             <li><a href="index.html#experiences">Experiences</a></li>
             <li><a href="index.html#catering">Catering</a></li>
             <li><a href="suites.html">Rooms & Suites</a></li>
@@ -194,7 +228,7 @@
     <!-- Rooms Hero -->
     <section
       class="rooms-hero hidden"
-      style="background-image: url('assets/images/rooms/hallway.webp')"
+      style="background-image: url('assets/rooms/hallway.webp')"
     >
       <div class="rooms-hero-overlay"></div>
       <div class="rooms-hero-content">
@@ -212,8 +246,8 @@
         <!-- Royal Suite -->
         <div class="room-card">
           <img
-            src="assets/images/rooms/room-1.webp"
-            data-src="assets/images/rooms/room-1.webp"
+            src="assets/rooms/room-1.webp"
+            data-src="assets/rooms/room-1.webp"
             alt="Royal Suite"
             class="lazy room-img"
             loading="lazy"
@@ -236,14 +270,17 @@
               class="btn btn-primary"
               >Book Now</a
             >
+
+            <!-- Add this trigger button inside the Royal Suite card -->
+            <button class="view-tour-btn">Take 360° Tour</button>
           </div>
         </div>
 
         <!-- Presidential Suite -->
         <div class="room-card">
           <img
-            src="assets/images/rooms/room-2.webp"
-            data-src="assets/images/rooms/room-2.webp"
+            src="assets/rooms/room-2.webp"
+            data-src="assets/rooms/room-2.webp"
             alt="Presidential Suite"
             class="lazy room-img"
             loading="lazy"
@@ -271,8 +308,8 @@
         <!-- Celebrity Suite -->
         <div class="room-card">
           <img
-            src="assets/images/rooms/room-3.webp"
-            data-src="assets/images/rooms/room-3.webp"
+            src="assets/rooms/room-3.webp"
+            data-src="assets/rooms/room-3.webp"
             alt="Celebrity Suite"
             class="room-img"
           />
@@ -299,8 +336,8 @@
         <!-- Deluxe Suite -->
         <div class="room-card">
           <img
-            src="assets/images/rooms/room-4.webp"
-            data-src="assets/images/rooms/room-4.webp"
+            src="assets/rooms/room-4.webp"
+            data-src="assets/rooms/room-4.webp"
             alt="Deluxe Room"
             class="lazy room-img"
             loading="lazy"
@@ -328,8 +365,8 @@
         <!-- Family-Special Suite -->
         <div class="room-card">
           <img
-            src="assets/images/rooms/fam-room.webp"
-            data-src="assets/images/rooms/fam-room.webp"
+            src="assets/rooms/fam-room.webp"
+            data-src="assets/rooms/fam-room.webp"
             alt="Family Suite"
             class="room-img"
           />
@@ -356,8 +393,8 @@
         <!-- Executive Suite -->
         <div class="room-card">
           <img
-            src="assets/images/rooms/room-5.webp"
-            data-src="assets/images/rooms/room-5.webp"
+            src="assets/rooms/room-5.webp"
+            data-src="assets/rooms/room-5.webp"
             alt="Executive Suite"
             class="lazy room-img"
             loading="lazy"
@@ -381,6 +418,103 @@
             >
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Add this where you want the form to appear -->
+    <section class="booking-form-section">
+      <div class="container">
+        <h2 class="form-title">Book Your Stay</h2>
+        <form id="bookingForm" class="booking-form">
+          <div class="form-group">
+            <label for="roomType">Room Type</label>
+            <select id="roomType" name="roomType" required>
+              <option value="">Select a room</option>
+              <option value="royal-suite">Royal Suite</option>
+              <option value="presidential">Presidential Suite</option>
+              <option value="celebrity">Celebrity Suite</option>
+              <option value="deluxe">Deluxe Room</option>
+              <option value="family">Family-Special Suite</option>
+              <option value="executive">Executive Suite</option>
+            </select>
+            <div class="error-message"></div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="checkIn">Check-In</label>
+              <input type="date" id="checkIn" name="checkIn" required />
+              <div class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="checkOut">Check-Out</label>
+              <input type="date" id="checkOut" name="checkOut" required />
+              <div class="error-message"></div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="adults">Adults</label>
+              <select id="adults" name="adults" required>
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="children">Children</label>
+              <select id="children" name="children">
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              required
+              minlength="3"
+            />
+            <div class="error-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+            <div class="error-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required />
+            <div class="error-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="specialRequests">Special Requests</label>
+            <textarea
+              id="specialRequests"
+              name="specialRequests"
+              rows="3"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit Booking</button>
+
+          <div class="form-success" style="display: none">
+            <i class="fas fa-check-circle"></i>
+            <p>Thank you! Your booking request has been received.</p>
+          </div>
+        </form>
       </div>
     </section>
 
@@ -448,6 +582,23 @@
         </div>
       </div>
     </footer>
+
+    <!-- Virtual tour -->
+    <div class="virtual-tour-overlay">
+      <div class="virtual-tour-container">
+        <div class="virtual-tour">
+          <img src="" alt="360° view of the suite" class="tour-image" />
+        </div>
+        <div class="tour-controls">
+          <button class="tour-prev"><i class="fas fa-chevron-left"></i></button>
+          <div class="tour-progress">1/6</div>
+          <button class="tour-next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <button class="close-tour"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>

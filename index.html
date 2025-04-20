@@ -147,18 +147,52 @@
     />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/icon.jpg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/icon/android-chrome-512x512.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/icon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/icon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/icon/favicon-16x16.png"
+    />
+
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
+    <!-- Add right after opening <body> tag -->
+    <div class="promo-banner">
+      <div class="promo-content">
+        <span class="promo-text"
+          >Special Offer: Get 20% off on all suites this season! Use code
+          <strong>SERENE20</strong></span
+        >
+        <button class="close-promo">&times;</button>
+      </div>
+    </div>
+
     <!-- Scroll Progress Bar -->
     <div id="scroll-to-top">
       <i class="fas fa-chevron-up"></i>
       <div class="progress-bar"></div>
+      a
     </div>
 
     <!-- Preloader -->
@@ -201,7 +235,7 @@
       >
         <source src="assets/videos/serenity.webm" type="video/webm" />
         <img
-          src="assets/images/views/view-2.webp"
+          src="assets/views/view-2.webp"
           alt="Background fallback"
           loading="lazy"
         />
@@ -230,55 +264,126 @@
       </div>
     </section>
 
-    <!-- Slideshow Section -->
+    <!-- Rooms preview -->
+    <section class="room-showcase">
+      <div class="container">
+        <div class="showcase-header">
+          <h2>Our Signature Suites</h2>
+          <p>
+            Preview our most exclusive accommodations - a perfect blend of
+            luxury and comfort
+          </p>
+        </div>
+
+        <div class="room-carousel">
+          <!-- Room 1 -->
+          <div class="room-preview active">
+            <div
+              class="room-image"
+              style="background-image: url('assets/rooms/room-1.webp')"
+              loading="lazy"
+            >
+              <div class="room-overlay">
+                <h3>Royal Suite</h3>
+                <p>₦100,000 per night</p>
+                <div class="room-features">
+                  <span><i class="fas fa-ruler-combined"></i> 120 m²</span>
+                  <span><i class="fas fa-user-friends"></i> 2-4 Guests</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room 2 -->
+          <div class="room-preview">
+            <div
+              class="room-image"
+              style="background-image: url('assets/rooms/room-2.webp')"
+              loading="lazy"
+            >
+              <div class="room-overlay">
+                <h3>Presidential Suite</h3>
+                <p>₦100,000 per night</p>
+                <div class="room-features">
+                  <span><i class="fas fa-ruler-combined"></i> 90 m²</span>
+                  <span><i class="fas fa-user-friends"></i> 2-3 Guests</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room 3 -->
+          <div class="room-preview">
+            <div
+              class="room-image"
+              style="background-image: url('assets/rooms/room-3.webp')"
+              loading="lazy"
+            >
+              <div class="room-overlay">
+                <h3>Celebrity Suite</h3>
+                <p>₦90,000 per night</p>
+                <div class="room-features">
+                  <span><i class="fas fa-ruler-combined"></i> 120 m²</span>
+                  <span><i class="fas fa-user-friends"></i> 2-4 Guests</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-nav">
+          <button class="carousel-prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <button class="carousel-next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="showcase-cta">
+          <a href="suites.html" class="btn btn-primary"
+            >Explore All Accommodations</a
+          >
+          <p>More exquisite suites await!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- First Slideshow Section -->
     <section class="slideshow-section">
       <div class="slideshow-container">
         <div class="slideshow">
           <div
             class="slide active"
-            style="background-image: url('assets/images/views/view-1.webp')"
+            style="background-image: url('assets/views/view-1.webp')"
           ></div>
           <div
             class="slide"
-            style="background-image: url('assets/images/views/view-2.webp')"
+            style="background-image: url('assets/views/view-2.webp')"
           ></div>
           <div
             class="slide"
-            style="background-image: url('assets/images/views/view-3.webp')"
+            style="background-image: url('assets/pool/pool-2.webp')"
           ></div>
           <div
             class="slide"
-            style="background-image: url('assets/images/views/view-4.webp')"
+            style="background-image: url('assets/views/view-4.webp')"
           ></div>
           <div
             class="slide"
-            style="background-image: url('assets/images/views/view-5.webp')"
-          ></div>
-          <div
-            class="slide"
-            style="background-image: url('assets/images/views/view-6.webp')"
-          ></div>
-          <div
-            class="slide"
-            style="background-image: url('assets/images/views/view-7.webp')"
-          ></div>
-          <div
-            class="slide"
-            style="background-image: url('assets/images/views/view-8.webp')"
-          ></div>
-          <div
-            class="slide"
-            style="background-image: url('assets/images/views/view-9.webp')"
-          ></div>
-          <div
-            class="slide"
-            style="background-image: url(assets/images/views/view-10.webp)"
+            style="background-image: url('assets/views/view-5.webp')"
           ></div>
         </div>
         <div class="slideshow-content">
-          <h2>Unmatched Elegance</h2>
+          <h2>Architectural Grandeur</h2>
           <p>
-            Every corner designed with sophistication and attention to detail.
+            Our award-winning design blends modern luxury with timeless
+            elegance.
           </p>
         </div>
       </div>
@@ -294,203 +399,197 @@
           </p>
         </div>
         <div class="experience-grid">
+          <!-- Gym Experience -->
           <div class="experience-card">
-            <img
-              src="assets/images/experiences/gym.webp"
-              data-src="assets/images/experiences/gym.webp"
-              alt="State-of-the-art fitness center"
-              class="experience-img lazy"
-              loading="lazy"
-            />
+            <div class="experience-images">
+              <img
+                src="assets/gym/gym.webp"
+                alt="Lady running on a treadmill"
+                class="active"
+              />
+              <img src="assets/gym/gym-1.webp" alt="Man flexing his triceps" />
+              <img
+                src="assets/gym/gym-2.webp"
+                alt="Lady bending to pick up a bar"
+              />
+              <img src="assets/gym/gym-3.webp" alt="Man on a treadmill" />
+              <img
+                src="assets/gym/gym-4.webp"
+                alt="Lady benching with a male spotter"
+              />
+              <img src="assets/gym/gym-5.webp" alt="Lady squatting" />
+            </div>
             <div class="experience-overlay">
               <h3>World-class Gym</h3>
               <p>Keep fit | Maintain your physical shape</p>
+              <div class="experience-nav">
+                <button class="exp-prev">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="exp-next">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
             </div>
           </div>
+
+          <!-- Spa Experience -->
           <div class="experience-card">
-            <img
-              src="assets/images/experiences/spa.webp"
-              data-src="assets/images/experiences/spa.webp"
-              alt="Woman enjoying spa treatment"
-              class="experience-img lazy"
-              loading="lazy"
-            />
+            <div class="experience-images">
+              <img
+                src="assets/spa/spa.webp"
+                alt="Lady enjoying spa treatment"
+                class="active"
+              />
+              <img
+                src="assets/spa/spa-1.webp"
+                alt="Lady getting a Massage Therapy"
+              />
+              <img src="assets/spa/spa-2.webp" alt="Guy on a facemask" />
+              <img src="assets/spa/spa-3.webp" alt="Relaxation area" />
+              <img src="assets/spa/spa-4.webp" alt="Guy getting a Massage" />
+              <img src="assets/spa/spa-5.webp" alt="Lady getting a Massage" />
+            </div>
             <div class="experience-overlay">
               <h3>Serenity Spa</h3>
               <p>Rejuvenate with our signature treatments.</p>
+              <div class="experience-nav">
+                <button class="exp-prev">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="exp-next">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
             </div>
           </div>
+
+          <!-- Pool Experience -->
           <div class="experience-card">
-            <img
-              src="assets/images/experiences/food.webp"
-              data-src="assets/images/experiences/food.webp"
-              alt="Gourmet meal presentation at our restaurant"
-              class="experience-img lazy"
-              loading="lazy"
-            />
-            <div class="experience-overlay">
-              <h3>Gourmet Haven</h3>
-              <p>Culinary masterpieces by world-renowned chefs.</p>
+            <div class="experience-images">
+              <img
+                src="assets/pool/pool.webp"
+                alt="Lady lying on a pool"
+                class="active"
+              />
+              <img src="assets/pool/pool-1.webp" alt="Lady on private pool" />
+              <img src="assets/pool/pool-2.webp" alt="Lady doing backstroke" />
+              <img
+                src="assets/views/view-3-pool-3.webp"
+                alt="Lady lying on a poolside"
+              />
+              <img src="assets/pool/pool-4.webp" alt="Man on a pool" />
+              <img
+                src="assets/pool/pool-5.webp"
+                alt="Lady on a roof-top pool"
+              />
+              <img
+                src="assets/pool/pool-6.webp"
+                alt="Lady sipping pineapple juice in a pool"
+              />
             </div>
-          </div>
-          <div class="experience-card">
-            <img
-              src="assets/images/experiences/pool.webp"
-              data-src="assets/images/experiences/pool.webp"
-              alt="Infinity pool overlooking the city"
-              class="experience-img lazy"
-              loading="lazy"
-            />
             <div class="experience-overlay">
               <h3>Infinity Oasis</h3>
               <p>
-                Our rooftop infinity pool offers breathtaking views and a
-                tranquil escape.
+                Our rooftop and private, infinity pools offers breathtaking
+                views and a tranquil escape.
               </p>
+              <div class="experience-nav">
+                <button class="exp-prev">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="exp-next">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bar Experience -->
+          <div class="experience-card">
+            <div class="experience-images">
+              <img src="assets/bar/bar.webp" alt="Serene bar" class="active" />
+              <img src="assets/bar/bar-1.webp" alt="Luxury bar" />
+              <img src="assets/bar/bar-2.webp" alt="Cocktail" />
+              <img src="assets/bar/bar-3.webp" alt="Bar seating" />
+              <img src="assets/bar/bar-4.webp" alt="Wine collection" />
+              <img src="assets/bar/bar-5.webp" alt="Man at a bar" />
+            </div>
+            <div class="experience-overlay">
+              <h3>The Velvet Lounge</h3>
+              <p>Signature cocktails | Premium spirits | Live music</p>
+              <div class="experience-nav">
+                <button class="exp-prev">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="exp-next">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Catering Experience -->
+          <div class="experience-card">
+            <div class="experience-images">
+              <img
+                src="assets/food/pyam.webp"
+                alt="Pounded yam & soup"
+                class="active"
+              />
+              <img src="assets/food/women.webp" alt="2 women" />
+              <img src="assets/food/egusi.webp" alt="Egusi soup" />
+              <img src="assets/food/fried-rice.webp" alt="Fried rice" />
+              <img src="assets/food/jollof.webp" alt="Jollof rice" />
+              <img src="assets/food/fiesta.webp" alt="Meal presentation" />
+            </div>
+            <div class="experience-overlay">
+              <h3>Gourmet Haven</h3>
+              <p>Culinary masterpieces by world-renowned chefs.</p>
+              <div class="experience-nav">
+                <button class="exp-prev">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="exp-next">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Catering Section -->
-    <section class="catering" id="catering">
-      <div class="container">
-        <div class="section-title">
-          <h2>Exquisite Catering</h2>
+    <!-- Second Slideshow Section -->
+    <section class="slideshow-section secondary-slideshow">
+      <div class="slideshow-container">
+        <div class="slideshow">
+          <div
+            class="slide active"
+            style="background-image: url('assets/views/view-6-pool-2.webp')"
+          ></div>
+          <div
+            class="slide"
+            style="background-image: url('assets/views/view-7.webp')"
+          ></div>
+          <div
+            class="slide"
+            style="background-image: url('assets/views/view-8.webp')"
+          ></div>
+          <div
+            class="slide"
+            style="background-image: url('assets/views/view-9.webp')"
+          ></div>
+          <div
+            class="slide"
+            style="background-image: url('assets/views/view-10.webp')"
+          ></div>
+        </div>
+        <div class="slideshow-content">
+          <h2>Breathtaking Perspectives</h2>
           <p>
-            Gastronomic wonders celebrating local flavors with international
-            flair.
+            Every angle reveals another dimension of our exquisite property.
           </p>
-        </div>
-
-        <div class="catering-slider">
-          <div class="catering-slide active">
-            <img
-              src="assets/images/food/women.webp"
-              data-src="assets/images/food/women.webp"
-              alt="Two women enjoying gourmet meal"
-              loading="lazy"
-            />
-            <div class="catering-content">
-              <h3>Goddesses of Gastronomy</h3>
-              <p>
-                Two modern muses savoring ambrosial delights—where every bite is
-                a whispered secret from the gods.
-              </p>
-            </div>
-          </div>
-
-          <div class="catering-slide">
-            <img
-              src="assets/images/food/jollof.webp"
-              data-src="assets/images/food/jollof.webp"
-              alt="Jollof Rice"
-              loading="lazy"
-            />
-            <div class="catering-content">
-              <h3>Nigerian Jollof</h3>
-              <p>
-                Where tradition meets opulence—a dish so beloved; party jollof,
-                elevated to celestial heights.
-              </p>
-            </div>
-          </div>
-
-          <div class="catering-slide">
-            <img
-              src="assets/images/food/fiesta.webp"
-              data-src="assets/images/food/fiesta.webp"
-              alt="Variety of gourmet dishes"
-              loading="lazy"
-            />
-            <div class="catering-content">
-              <h3>Food Fiesta</h3>
-              <p>Variety of meals for your pleasure</p>
-            </div>
-          </div>
-
-          <div class="catering-slide">
-            <img
-              src="assets/images/food/pyam.webp"
-              data-src="assets/images/food/pyam.webp"
-              alt="Pounded yam and bitter-leaf soup"
-              class="lazy"
-              loading="lazy"
-            />
-            <div class="catering-content">
-              <h3>Pounded yam and bitter-leaf soup</h3>
-              <p>
-                The cloud-like softness of pounded yam combines beautifully with
-                the earthy bitterness of the soup, creating a culinary
-                experience that nourishes both body and soul.
-              </p>
-            </div>
-          </div>
-
-          <div class="catering-slide">
-            <img
-              src="assets/images/food/fried-rice.webp"
-              data-src="assets/images/food/fried-rice.webp"
-              alt="Fried Rice"
-              class="lazy"
-              loading="lazy"
-            />
-            <div class="catering-content">
-              <h3>Chef's Signature Fried Rice</h3>
-              <p>
-                A luxurious take on a Nigerian favorite - fragrant basmati rice
-                wok-tossed with smoked turkey and seasonal vegetables, infused
-                with a delicate blend of local spices for a touch of grandeur.
-              </p>
-            </div>
-          </div>
-
-          <div class="catering-slide">
-            <img
-              src="assets/images/food/egusi.webp"
-              data-src="assets/images/food/egusi.webp"
-              alt="Fried Rice"
-              class="lazy"
-              loading="lazy"
-            />
-            <div class="catering-content">
-              <h3>Golden Egusi Delight</h3>
-              <p>An opulent reimagining of Nigeria's most beloved soup.</p>
-            </div>
-          </div>
-        </div>
-        <div class="slider-nav">
-          <div
-            class="slider-dot active"
-            data-slide="0"
-            aria-label="Go to slide 1"
-          ></div>
-          <div
-            class="slider-dot"
-            data-slide="1"
-            aria-label="Go to slide 2"
-          ></div>
-          <div
-            class="slider-dot"
-            data-slide="2"
-            aria-label="Go to slide 3"
-          ></div>
-          <div
-            class="slider-dot"
-            data-slide="3"
-            aria-label="Go to slide 4"
-          ></div>
-          <div
-            class="slider-dot"
-            data-slide="4"
-            aria-label="Go to slide 5"
-          ></div>
-          <div
-            class="slider-dot"
-            data-slide="5"
-            aria-label="Go to slide 6"
-          ></div>
         </div>
       </div>
     </section>
@@ -559,6 +658,18 @@
         </div>
       </div>
     </footer>
+
+    <div class="experience-fullscreen">
+      <div class="fullscreen-container">
+        <img src="" class="fullscreen-image" />
+        <div class="fullscreen-nav">
+          <button class="fs-prev"><i class="fas fa-chevron-left"></i></button>
+          <div class="fs-dots"></div>
+          <button class="fs-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <button class="close-fs"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
 
     <!-- Newsletter Modal -->
     <div class="newsletter-modal" id="newsletterModal">
