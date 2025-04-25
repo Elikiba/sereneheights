@@ -459,22 +459,33 @@ section.show {
     opacity: 0.8;
 }
 
+.room-carousel-container {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+  }
+
 .room-carousel {
     display: flex;
     gap: 30px;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1000px;
     position: relative;
     padding: 20px 0;
+    transition: transform 0.5s ease;
+
 }
 
 .room-preview {
+    min-width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
     min-width: 100%;
     transition: transform 0.5s var(--ease-out);
 }
 
 .room-image {
-    height: 500px;
+    height: 80vh;
     border-radius: 10px;
     background-size: cover;
     background-position: center;
@@ -1782,10 +1793,6 @@ footer {
         height: 70vh;
         min-height: 500px;
     }
-
-    .catering-slider {
-        height: 400px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -1793,6 +1800,36 @@ footer {
         padding: 60px 0;
     }
 
+    .room-carousel {
+        flex-wrap: nowrap;
+        overflow-x: none;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+        scrollbar-width: none;
+      }
+    
+      .room-carousel::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for Chrome/Safari */
+      }
+    
+      .room-preview {
+        scroll-snap-align: start;
+      }
+    
+      .room-image {
+        height: 250px;
+      }
+
+      /* If you want to keep navigation on mobile */
+  .carousel-nav {
+    padding: 15px 0;
+  }
+  
+  .carousel-prev, .carousel-next {
+    width: 40px;
+    height: 40px;
+  }
+      
     .hero {
         height: 90vh;
         min-height: 600px;
@@ -1837,10 +1874,6 @@ footer {
 
     .slideshow-content p {
         font-size: 1rem;
-    }
-
-    .catering-slider {
-        height: 400px;
     }
 
     .footer-col h3 {
@@ -1904,3 +1937,8 @@ footer {
         padding: 20px;
     }
 }
+@media (min-width: 769px) and (max-width: 1024px) {
+    .room-preview {
+      min-width: 50%;
+    }
+  }
