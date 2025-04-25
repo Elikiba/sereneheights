@@ -459,12 +459,6 @@ section.show {
     opacity: 0.8;
 }
 
-.room-carousel-container {
-    width: 100%;
-    overflow-x: hidden;
-    position: relative;
-  }
-
 .room-carousel {
     display: flex;
     gap: 30px;
@@ -485,7 +479,7 @@ section.show {
 }
 
 .room-image {
-    height: 80vh;
+    height: 500px;
     border-radius: 10px;
     background-size: cover;
     background-position: center;
@@ -1800,36 +1794,6 @@ footer {
         padding: 60px 0;
     }
 
-    .room-carousel {
-        flex-wrap: nowrap;
-        overflow-x: none;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
-        scrollbar-width: none;
-      }
-    
-      .room-carousel::-webkit-scrollbar {
-        display: none; /* Hide scrollbar for Chrome/Safari */
-      }
-    
-      .room-preview {
-        scroll-snap-align: start;
-      }
-    
-      .room-image {
-        height: 250px;
-      }
-
-      /* If you want to keep navigation on mobile */
-  .carousel-nav {
-    padding: 15px 0;
-  }
-  
-  .carousel-prev, .carousel-next {
-    width: 40px;
-    height: 40px;
-  }
-      
     .hero {
         height: 90vh;
         min-height: 600px;
@@ -1937,8 +1901,3 @@ footer {
         padding: 20px;
     }
 }
-@media (min-width: 769px) and (max-width: 1024px) {
-    .room-preview {
-      min-width: 50%;
-    }
-  }
