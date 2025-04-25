@@ -325,12 +325,14 @@ nav ul li a:hover::after {
     line-height: 1.8;
     opacity: 0;
     animation: fadeIn 1s var(--ease-out) 1s forwards;
+    margin-bottom: 20px;
 }
 
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 15px 40px;
+    padding: 20px 40px;
+    margin-top: 30px;
     background: var(--gold);
     color: var(--dark);
     text-decoration: none;
