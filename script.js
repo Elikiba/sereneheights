@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCateringSlider();
     initScrollAnimations();
     initNewsletterModal();
-    initRoomCarousel(); 
+    initRoomCarousel();
     initEnhancedExperienceCards();
     initParallaxSlideshows();
     initVirtualTours();
@@ -234,6 +234,7 @@ function initNewsletterModal() {
     });
 }
 
+// Room Carousel
 function initRoomCarousel() {
     const carousel = document.querySelector('.room-carousel');
     const previews = document.querySelectorAll('.room-preview');
@@ -244,110 +245,41 @@ function initRoomCarousel() {
     if (!carousel || previews.length === 0) return;
     
     let currentIndex = 0;
-    const itemWidth = previews[0].offsetWidth;
-    const gap = parseInt(window.getComputedStyle(carousel).gap) || 20;
     
     function updateCarousel() {
-      const scrollPosition = currentIndex * (itemWidth + gap);
-      carousel.scrollTo({
-        left: scrollPosition,
-        behavior: 'smooth'
-      });
-      
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-      });
-      
-      previews.forEach((preview, index) => {
-        preview.classList.toggle('active', index === currentIndex);
-      });
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+        
+        previews.forEach((preview, index) => {
+            preview.classList.toggle('active', index === currentIndex);
+        });
     }
     
     function nextSlide() {
-      currentIndex = (currentIndex + 1) % previews.length;
-      updateCarousel();
+        currentIndex = (currentIndex + 1) % previews.length;
+        updateCarousel();
     }
     
     function prevSlide() {
-      currentIndex = (currentIndex - 1 + previews.length) % previews.length;
-      updateCarousel();
+        currentIndex = (currentIndex - 1 + previews.length) % previews.length;
+        updateCarousel();
     }
     
     nextBtn.addEventListener('click', nextSlide);
     prevBtn.addEventListener('click', prevSlide);
     
     dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        currentIndex = index;
-        updateCarousel();
-      });
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+        });
     });
     
-    // Handle window resize
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        updateCarousel();
-      }, 250);
-    });
-    
-    // Auto-advance carousel
-    let autoSlide = setInterval(nextSlide, 5000);
-    
-    // Pause auto-slide on hover
-    carousel.addEventListener('mouseenter', () => clearInterval(autoSlide));
-    carousel.addEventListener('mouseleave', () => {
-      autoSlide = setInterval(nextSlide, 5000);
-    });
-  }
-
-// Room Carousel
-// function initRoomCarousel() {
-//     const carousel = document.querySelector('.room-carousel');
-//     const previews = document.querySelectorAll('.room-preview');
-//     const dots = document.querySelectorAll('.carousel-dots .dot');
-//     const prevBtn = document.querySelector('.carousel-prev');
-//     const nextBtn = document.querySelector('.carousel-next');
-    
-//     if (!carousel || previews.length === 0) return;
-    
-//     let currentIndex = 0;
-    
-//     function updateCarousel() {
-//         carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-        
-//         dots.forEach((dot, index) => {
-//             dot.classList.toggle('active', index === currentIndex);
-//         });
-        
-//         previews.forEach((preview, index) => {
-//             preview.classList.toggle('active', index === currentIndex);
-//         });
-//     }
-    
-//     function nextSlide() {
-//         currentIndex = (currentIndex + 1) % previews.length;
-//         updateCarousel();
-//     }
-    
-//     function prevSlide() {
-//         currentIndex = (currentIndex - 1 + previews.length) % previews.length;
-//         updateCarousel();
-//     }
-    
-//     nextBtn.addEventListener('click', nextSlide);
-//     prevBtn.addEventListener('click', prevSlide);
-    
-//     dots.forEach((dot, index) => {
-//         dot.addEventListener('click', () => {
-//             currentIndex = index;
-//             updateCarousel();
-//         });
-//     });
-    
-//     setInterval(nextSlide, 5000);
-// }
+    setInterval(nextSlide, 5000);
+}
 
 // Experience Cards
 function initEnhancedExperienceCards() {
