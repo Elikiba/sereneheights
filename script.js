@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCateringSlider();
     initScrollAnimations();
     initNewsletterModal();
-    initRoomCarousel();
+    initRoomCarousel(); 
     initEnhancedExperienceCards();
     initParallaxSlideshows();
     initVirtualTours();
