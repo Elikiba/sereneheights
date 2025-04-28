@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCateringSlider();
     initScrollAnimations();
     initNewsletterModal();
-    initRoomCarousel(); 
+    initRoomsCarousel();
     initEnhancedExperienceCards();
     initParallaxSlideshows();
     initVirtualTours();
@@ -234,52 +234,118 @@ function initNewsletterModal() {
     });
 }
 
-// Room Carousel
-function initRoomCarousel() {
-    const carousel = document.querySelector('.room-carousel');
-    const previews = document.querySelectorAll('.room-preview');
-    const dots = document.querySelectorAll('.carousel-dots .dot');
-    const prevBtn = document.querySelector('.carousel-prev');
-    const nextBtn = document.querySelector('.carousel-next');
-    
-    if (!carousel || previews.length === 0) return;
-    
-    let currentIndex = 0;
-    
-    function updateCarousel() {
-        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-        
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentIndex);
-        });
-        
-        previews.forEach((preview, index) => {
-            preview.classList.toggle('active', index === currentIndex);
-        });
-    }
-    
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % previews.length;
-        updateCarousel();
-    }
-    
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + previews.length) % previews.length;
-        updateCarousel();
-    }
-    
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
+function initRoomsCarousel() {
+  const carousel = document.querySelector('.rooms-carousel');
+  const cards = document.querySelectorAll('.room-card');
+  const dots = document.querySelectorAll('.carousel-dots .dot');
+  const prevBtn = document.querySelector('.carousel-prev');
+  const nextBtn = document.querySelector('.carousel-next');
+  
+  if (!carousel || cards.length === 0) return;
+  
+  let currentIndex = 0;
+  const cardCount = cards.length;
+  
+  function updateCarousel() {
+    const offset = -currentIndex * 100;
+    carousel.style.transform = `translateX(${offset}%)`;
     
     dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            currentIndex = index;
-            updateCarousel();
-        });
+      dot.classList.toggle('active', index === currentIndex);
     });
     
-    setInterval(nextSlide, 5000);
+    cards.forEach((card, index) => {
+      card.classList.toggle('active', index === currentIndex);
+    });
+  }
+  
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % cardCount;
+    updateCarousel();
+  }
+  
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + cardCount) % cardCount;
+    updateCarousel();
+  }
+  
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
+  
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentIndex = index;
+      updateCarousel();
+    });
+  });
+  
+  // Auto-advance every 5 seconds
+  setInterval(nextSlide, 5000);
+  
+  // Pause on hover
+  carousel.addEventListener('mouseenter', () => {
+    clearInterval(interval);
+  });
+  
+  carousel.addEventListener('mouseleave', () => {
+    interval = setInterval(nextSlide, 5000);
+  });
+  
+  let interval = setInterval(nextSlide, 5000);
 }
+
+// Add to your initialization function
+document.addEventListener('DOMContentLoaded', function() {
+  // ... other init functions ...
+  initRoomsCarousel();
+});
+
+// // Room Carousel
+// function initRoomCarousel() {
+//     const carousel = document.querySelector('.room-carousel');
+//     const previews = document.querySelectorAll('.room-preview');
+//     const dots = document.querySelectorAll('.carousel-dots .dot');
+//     const prevBtn = document.querySelector('.carousel-prev');
+//     const nextBtn = document.querySelector('.carousel-next');
+    
+//     if (!carousel || previews.length === 0) return;
+    
+//     let currentIndex = 0;
+    
+//     function updateCarousel() {
+//         carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+//         dots.forEach((dot, index) => {
+//             dot.classList.toggle('active', index === currentIndex);
+//         });
+        
+//         previews.forEach((preview, index) => {
+//             preview.classList.toggle('active', index === currentIndex);
+//         });
+//     }
+    
+//     function nextSlide() {
+//         currentIndex = (currentIndex + 1) % previews.length;
+//         updateCarousel();
+//     }
+    
+//     function prevSlide() {
+//         currentIndex = (currentIndex - 1 + previews.length) % previews.length;
+//         updateCarousel();
+//     }
+    
+//     nextBtn.addEventListener('click', nextSlide);
+//     prevBtn.addEventListener('click', prevSlide);
+    
+//     dots.forEach((dot, index) => {
+//         dot.addEventListener('click', () => {
+//             currentIndex = index;
+//             updateCarousel();
+//         });
+//     });
+    
+//     setInterval(nextSlide, 5000);
+// }
 
 // Experience Cards
 function initEnhancedExperienceCards() {
@@ -588,3 +654,49 @@ function initBookingForm() {
         }
     });
 }
+
+function initSnapCarousel() {
+    const carousel = document.querySelector('.snap-carousel');
+    const prevBtn = document.querySelector('.carousel-nav.prev');
+    const nextBtn = document.querySelector('.carousel-nav.next');
+    const cards = document.querySelectorAll('.room-card');
+    
+    if (!carousel || !cards.length) return;
+    
+    let currentIndex = 0;
+    const cardWidth = cards[0].offsetWidth + 30; // width + gap
+    
+    function scrollToCard(index) {
+      currentIndex = Math.max(0, Math.min(index, cards.length - 1));
+      carousel.scrollTo({
+        left: currentIndex * cardWidth,
+        behavior: 'smooth'
+      });
+    }
+    
+    function handleScroll() {
+      currentIndex = Math.round(carousel.scrollLeft / cardWidth);
+    }
+    
+    prevBtn.addEventListener('click', () => scrollToCard(currentIndex - 1));
+    nextBtn.addEventListener('click', () => scrollToCard(currentIndex + 1));
+    carousel.addEventListener('scroll', handleScroll);
+    
+    // Handle keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        scrollToCard(currentIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        scrollToCard(currentIndex + 1);
+      }
+    });
+    
+    // Initialize
+    scrollToCard(0);
+  }
+  
+  // Add to your initialization function
+  document.addEventListener('DOMContentLoaded', function() {
+    // ... other init functions ...
+    initSnapCarousel();
+  });
