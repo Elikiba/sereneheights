@@ -700,3 +700,49 @@ function initSnapCarousel() {
     // ... other init functions ...
     initSnapCarousel();
   });
+
+  function initSnapCarousel() {
+    const carousel = document.querySelector('.snap-carousel');
+    const prevBtn = document.querySelector('.carousel-nav.prev');
+    const nextBtn = document.querySelector('.carousel-nav.next');
+    const cards = document.querySelectorAll('.room-card');
+    
+    if (!carousel || !cards.length) return;
+    
+    let currentIndex = 0;
+    const cardWidth = cards[0].offsetWidth + 30; // width + gap
+    
+    function scrollToCard(index) {
+      currentIndex = Math.max(0, Math.min(index, cards.length - 1));
+      carousel.scrollTo({
+        left: currentIndex * cardWidth,
+        behavior: 'smooth'
+      });
+    }
+    
+    function handleScroll() {
+      currentIndex = Math.round(carousel.scrollLeft / cardWidth);
+    }
+    
+    prevBtn.addEventListener('click', () => scrollToCard(currentIndex - 1));
+    nextBtn.addEventListener('click', () => scrollToCard(currentIndex + 1));
+    carousel.addEventListener('scroll', handleScroll);
+    
+    // Handle keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        scrollToCard(currentIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        scrollToCard(currentIndex + 1);
+      }
+    });
+    
+    // Initialize
+    scrollToCard(0);
+  }
+  
+  // Add to your initialization function
+  document.addEventListener('DOMContentLoaded', function() {
+    // ... other init functions ...
+    initSnapCarousel();
+  });
