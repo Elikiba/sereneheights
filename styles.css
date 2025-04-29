@@ -530,8 +530,8 @@ section.show {
   
   .room-card {
     scroll-snap-align: start;
-    flex: 0 0 calc(100% - 60px);
-    max-width: calc(100% - 60px);
+    flex: 0 0 calc(90% - 60px);
+    max-width: 100vw;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -1307,7 +1307,7 @@ section.show {
 .rooms-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
+    gap: 20px;
     margin-top: 40px;
 }
 
@@ -1348,7 +1348,7 @@ section.show {
 .room-content h3 {
     margin-bottom: 15px;
     color: gold;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .room-features {
