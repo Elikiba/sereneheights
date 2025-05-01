@@ -962,62 +962,7 @@ section.show {
     z-index: 1001;
 }
 
-/* Catering Slider */
-#catering {
-    padding-top: 40px !important;
-    padding-bottom: 80px;
-}
-
-.catering-slider {
-    position: relative;
-    height: 500px;
-    margin: 0 auto;
-    max-width: 1200px;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.catering-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1.5s var(--ease-in-out), transform 8s var(--ease-in-out);
-    transform: scale(1.1);
-}
-
-.catering-slide.active {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.catering-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.catering-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-    color: var(--white);
-}
-
-.catering-content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: var(--gold);
-}
-
-.slider-nav {
+/* .slider-nav {
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -1037,7 +982,7 @@ section.show {
 .slider-dot.active {
     background: var(--gold);
     transform: scale(1.2);
-}
+} */
 
 /* Rooms Section */
 .rooms-hero {
@@ -1998,15 +1943,20 @@ footer {
 
     .room-image {
         height: 300px !important;
+        width: 300px !important;
       }
       
       .room-card {
         max-height: none !important;
         margin-bottom: 30px;
+        width: 85vw !important;
+        flex: 0 0 85vw !important; /* Adjust flex basis to match */
+        margin: 0 7.5vw 30px !important; /* Center the cards with equal margins */
+   
       }
       
       .room-info {
-        padding: 15px !important;
+        padding: 20px !important;
       }
       
       .room-card h3 {
