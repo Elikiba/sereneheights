@@ -11,7 +11,6 @@ function initAllFunctions() {
         initScrollToTop,
         initPreloader,
         initMainSlideshow,
-        initCateringSlider,
         initScrollAnimations,
         initNewsletterModal,
         initRoomsCarousel,
@@ -180,33 +179,6 @@ function initMainSlideshow() {
     });
 }
 
-// Catering Slider
-function initCateringSlider() {
-    const cateringSlides = document.querySelectorAll('.catering-slide');
-    if (cateringSlides.length === 0) return;
-    
-    const dots = document.querySelectorAll('.slider-dot');
-    let currentCateringSlide = 0;
-    
-    function showCateringSlide(n) {
-        cateringSlides[currentCateringSlide].classList.remove('active');
-        dots[currentCateringSlide].classList.remove('active');
-        currentCateringSlide = (n + cateringSlides.length) % cateringSlides.length;
-        cateringSlides[currentCateringSlide].classList.add('active');
-        dots[currentCateringSlide].classList.add('active');
-    }
-    
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => showCateringSlide(index));
-    });
-    
-    function nextCateringSlide() {
-        showCateringSlide(currentCateringSlide + 1);
-    }
-    
-    setInterval(nextCateringSlide, 6000);
-}
-
 // Scroll Animations
 function initScrollAnimations() {
     const hiddenElements = document.querySelectorAll('section');
@@ -236,13 +208,13 @@ function initNewsletterModal() {
     
     closeBtn.addEventListener('click', () => modal.classList.remove('show'));
 
-    // form.addEventListener('submit', (e) => {
-    //     e.preventDefault();
-    //     const email = form.querySelector('input[type="email"]').value;
-    //     alert(`Thank you for subscribing with ${email}!`);
-    //     form.reset();
-    //     modal.classList.remove('show');
-    // });
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = form.querySelector('input[type="email"]').value;
+        alert(`Thank you for subscribing with ${email}!`);
+        form.reset();
+        modal.classList.remove('show');
+    });
 
     // In the initNewsletterModal function, modify the form submit handler:
 form.addEventListener('submit', (e) => {
@@ -514,11 +486,16 @@ function initPromoBanner() {
     const closeBtn = document.querySelector('.close-promo');
     const header = document.querySelector('header');
   
-    if (!promoBanner) return;
+    if (!promoBanner || !closeBtn || !header) return;
   
+    // Only show if not dismissed
     if (!localStorage.getItem('promoDismissed')) {
-        promoBanner.style.display = 'block';
-        header.style.top = '40px';
+        promoBanner.style.display = 'flex';
+        
+        // Set header top position based on screen size
+        const headerTop = window.innerWidth <= 768 ? '30px' : '40px';
+        header.style.top = headerTop;
+        document.documentElement.style.setProperty('--header-top', headerTop);
     }
   
     closeBtn.addEventListener('click', function(e) {
@@ -528,11 +505,12 @@ function initPromoBanner() {
         localStorage.setItem('promoDismissed', 'true');
     });
   
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+    // Handle resize
+    window.addEventListener('resize', function() {
+        if (!localStorage.getItem('promoDismissed') && promoBanner.style.display !== 'none') {
+            const headerTop = window.innerWidth <= 768 ? '30px' : '40px';
+            header.style.top = headerTop;
+            document.documentElement.style.setProperty('--header-top', headerTop);
         }
     });
 }

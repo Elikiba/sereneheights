@@ -1408,7 +1408,7 @@ input.error, select.error {
 /* Footer */
 footer {
     background: radial-gradient(circle, #e6d7b2 0%, #abcdec 100%);
-    padding: 80px 0 30px;
+    padding: 30px 0 10px;
     color: var(--dark);
     z-index: 1;
 }
@@ -1615,7 +1615,7 @@ footer {
 }
 
 /* Promo Banner */
-.promo-banner {
+/* .promo-banner {
     display: flex;
     position: relative;
     top: 0;
@@ -1662,6 +1662,55 @@ footer {
 .close-promo:hover {
     color: var(--gold);
     transform: scale(1.2);
+} */
+
+.promo-banner {
+    display: flex;
+    position: relative;
+    width: 100%;
+    background: linear-gradient(90deg, var(--dark-gold), var(--dark));
+    color: white;
+    z-index: 200;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.promo-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.promo-text {
+    font-weight: 500;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    animation: scrollText 15s linear infinite;
+    padding: 0 10px;
+    flex-grow: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.close-promo {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 0 5px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+@keyframes scrollText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
 /* Newsletter Modal */
@@ -1720,6 +1769,17 @@ footer {
     display: inline-block;
     transform: rotate(-20deg);
     animation: flyAway 3s ease-in-out infinite;
+}
+
+.email-icon:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 4px;
+    background: var(--dark);
 }
 
 .close-modal {
@@ -1815,9 +1875,9 @@ footer {
     }
 }
 
-/* ============================================= */
-/* MEDIA QUERIES */
-/* ============================================= */
+/* =============================================
+         MEDIA QUERIES
+ ============================================= */
 
 @media (max-width: 1200px) {
     .rooms-grid {
@@ -1826,6 +1886,18 @@ footer {
 }
 
 @media (max-width: 992px) {
+    .room-info {
+      position: relative !important;
+      transform: translateY(0) !important;
+      opacity: 1 !important;
+      background: transparent !important;
+      color: white !important;
+    }
+    
+    .room-card:hover .room-image {
+      filter: brightness(0.7) !important;
+    }
+
     .menu-toggle {
         display: block;
     }
@@ -1891,6 +1963,17 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .preloader {
+          background: radial-gradient(circle,
+            var(--dark), var(--dark), var(--dark), var(--gold)
+            ) !important;
+        }
+        
+    .preloader-logo {
+          font-size: 2rem !important;
+          animation: shine 1.5s linear infinite !important;
+        }
+
     section {
         padding: 60px 0;
     }
@@ -1909,18 +1992,40 @@ footer {
         padding-bottom: 2px;
     }
 
+    rooms-hero-content h1 {
+        margin-top: 40px;
+    }
+
+    .room-image {
+        height: 300px !important;
+      }
+      
+      .room-card {
+        max-height: none !important;
+        margin-bottom: 30px;
+      }
+      
+      .room-info {
+        padding: 15px !important;
+      }
+      
+      .room-card h3 {
+        font-size: 1.4rem !important;
+      }
+      
+      .room-features {
+        gap: 10px !important;
+        margin: 10px 0 !important;
+      }
+      
+      .room-features span {
+        font-size: 0.8rem !important;
+      }
+
     .carousel-image {
         width: 100vh;
         height: 300px;
         object-fit: cover;
-    }
-
-    .room-image {
-        max-height: 50vh;
-    }
-
-    .room-card {
-        max-height: 50vh;
     }
 
     .rooms-hero {
@@ -1976,12 +2081,19 @@ footer {
 
     .promo-banner {
         background: linear-gradient(90deg, var(--dark-gold), var(--dark), var(--dark), var(--dark), var(--dark), var(--dark), var(--dark-gold));
+        padding: 8px 15px;
     }
     
     .promo-text {
+        font-size: 0.8rem;
+        animation: scrollText 10s linear infinite;
         white-space: nowrap;
         animation: scrollText 15s linear infinite;
         padding: 0 20px;
+    }
+
+    .close-promo {
+        font-size: 1.2rem;
     }
 }
 
