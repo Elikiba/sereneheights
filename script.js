@@ -654,3 +654,48 @@ function initSnapCarousel() {
     scrollToCard(0);
 }
 
+// Initialize Flatpickr with Serenity Heights theme
+const checkInPicker = flatpickr("#checkIn", {
+    minDate: "today",
+    dateFormat: "Y-m-d",
+    theme: "serenity", // Custom theme class
+    onChange: function(selectedDates) {
+      // Set check-out min date to next day
+      const nextDay = new Date(selectedDates[0]);
+      nextDay.setDate(nextDay.getDate() + 1);
+      checkOutPicker.set("minDate", nextDay);
+      
+      // Reset check-out if invalid
+      if (checkOutPicker.selectedDates[0] && checkOutPicker.selectedDates[0] < nextDay) {
+        checkOutPicker.clear();
+      }
+    }
+  });
+  
+  const checkOutPicker = flatpickr("#checkOut", {
+    minDate: new Date().fp_incr(1), // Tomorrow
+    dateFormat: "Y-m-d",
+    theme: "serenity"
+  });
+  
+  // Make icons clickable
+  document.querySelectorAll('.flatpickr-icon').forEach(icon => {
+    icon.addEventListener('click', () => {
+      const input = icon.previousElementSibling;
+      input._flatpickr.open();
+    });
+  });
+
+  const calendar = flatpickr("#checkIn", {
+    onMonthChange: function(selectedDates, dateStr, instance) {
+        // This fires every time month changes
+        const currentMonth = instance.currentMonth;
+        const currentYear = instance.currentYear;
+        
+        // Example: Change style for December
+        if (currentMonth === 11) { // December is 11 (0-indexed)
+            document.querySelector('.flatpickr-calendar').style.background = "linear-gradient(135deg, #020335 0%, #0a0a1a 100%)";
+        }
+    }
+});
+

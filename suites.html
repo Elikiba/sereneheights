@@ -155,6 +155,21 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Flatpickr CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- Font Awesome (for icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
 
   <style>
@@ -177,6 +192,7 @@
       transition: width 0.1s ease;
     }
   </style>
+
   <body>
     <!-- Promo banner -->
     <div class="promo-banner">
@@ -439,16 +455,39 @@
             <div class="error-message"></div>
           </div>
 
+          <!-- Date picker -->
           <div class="form-row">
-            <div class="form-group">
-              <label for="checkIn">Check-In</label>
-              <input type="date" id="checkIn" name="checkIn" required />
+            <div class="form-group date-picker-group">
+              <label for="checkIn"
+                ><i class="fas fa-calendar-day"></i> Check-In</label
+              >
+              <div class="flatpickr-wrapper">
+                <input
+                  type="text"
+                  class="flatpickr-input"
+                  id="checkIn"
+                  placeholder="Select Date"
+                  required
+                />
+                <i class="fas fa-calendar-alt flatpickr-icon"></i>
+              </div>
               <div class="error-message"></div>
             </div>
 
-            <div class="form-group">
-              <label for="checkOut">Check-Out</label>
-              <input type="date" id="checkOut" name="checkOut" required />
+            <div class="form-group date-picker-group">
+              <label for="checkOut"
+                ><i class="fas fa-calendar-day"></i> Check-Out</label
+              >
+              <div class="flatpickr-wrapper">
+                <input
+                  type="text"
+                  class="flatpickr-input"
+                  id="checkOut"
+                  placeholder="Select Date"
+                  required
+                />
+                <i class="fas fa-calendar-alt flatpickr-icon"></i>
+              </div>
               <div class="error-message"></div>
             </div>
           </div>
