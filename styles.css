@@ -2064,6 +2064,12 @@ footer {
         padding: 12px 25px;
     }
 
+    .room-card {
+        width: 90vw !important;
+        flex: 0 0 90vw !important;
+        margin: 0 5vw 30px !important;
+    }
+
     .newsletter-modal {
         width: 90%;
         right: 5%;
