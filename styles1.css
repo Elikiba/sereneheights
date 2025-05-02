@@ -433,6 +433,33 @@ section.show {
     align-items: center;
 }
 
+/* Room Showcase Styles */
+/* .room-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 80px 0;
+    background: var(--light-gray);
+    position: relative;
+}
+
+.showcase-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.showcase-header h2 {
+    font-size: 2.5rem;
+    color: var(--dark);
+    margin-bottom: 15px;
+}
+
+.showcase-header p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--dark);
+    opacity: 0.8;
+} */
+
 /* Rooms Preview Section */
 .rooms-preview {
     padding: 80px 0;
@@ -497,31 +524,6 @@ section.show {
     display: none;
 }
 
-.rooms-preview-cta {
-    text-align: center;
-    margin-top: 40px;
-    padding: 0 20px;
-  }
-  
-  .rooms-preview-cta .btn-outline {
-    background: var(--gold);
-    color: var(--dark);
-    border: 2px solid var(--gold);
-    margin: 0 auto;
-  }
-  
-  .rooms-preview-cta .btn-outline:hover {
-    background: var(--dark);
-    color: var(--gold);
-  }
-  
-  .cta-subtext {
-    margin-top: 15px;
-    color: var(--dark);
-    font-size: 1rem;
-    opacity: 0.8;
-  }
-
 .room-card {
     scroll-snap-align: start;
     flex: 0 0 calc(90% - 60px);
@@ -539,7 +541,6 @@ section.show {
     background-size: cover;
     background-position: center;
     transition: transform 0.5s var(--ease-out);
-    width: 100%;
 }
 
 .room-info {
@@ -623,6 +624,7 @@ section.show {
 .carousel-nav.next {
     right: -10px;
 }
+
 
 /* Hover Effects */
 @media (hover: hover) {
@@ -1336,13 +1338,13 @@ input.error, select.error {
 .date-picker-group {
     position: relative;
     flex: 1;
-}
-
-.flatpickr-wrapper {
+  }
+  
+  .flatpickr-wrapper {
     position: relative;
-}
-
-.flatpickr-input {
+  }
+  
+  .flatpickr-input {
     width: 100%;
     padding: 12px 15px;
     padding-left: 40px;
@@ -1353,15 +1355,15 @@ input.error, select.error {
     transition: all 0.3s ease;
     background: white;
     cursor: pointer;
-}
-
-.flatpickr-input:focus {
+  }
+  
+  .flatpickr-input:focus {
     border-color: var(--gold);
     box-shadow: 0 0 0 2px rgba(255, 223, 0, 0.2);
     outline: none;
-}
-
-.flatpickr-icon {
+  }
+  
+  .flatpickr-icon {
     position: absolute;
     left: 15px;
     top: 50%;
@@ -1369,20 +1371,20 @@ input.error, select.error {
     color: var(--dark-gold);
     pointer-events: none;
     z-index: 2;
-}
-
-.date-picker-group label {
+  }
+  
+  .date-picker-group label {
     display: flex;
     align-items: center;
     gap: 8px;
     margin-bottom: 8px;
-}
-
-.date-picker-group label i {
+  }
+  
+  .date-picker-group label i {
     color: var(--gold);
-}
+  }
 
-/* Enhanced Flatpickr styling */
+  /* Enhanced Flatpickr styling */
 .flatpickr-calendar {
     background: rgba(2, 3, 53, 0.85) !important;
     backdrop-filter: blur(10px);
@@ -1390,6 +1392,7 @@ input.error, select.error {
     -webkit-backdrop-filter: blur(10px);
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     border: 1px solid rgba(255, 223, 0, 0.2) !important;
+    /* width: 50% !important; */
     max-width: 400px !important;
 }
 
@@ -1415,22 +1418,38 @@ input.error, select.error {
 
 /* Main header container */
 .flatpickr-months {
-    height: 50px !important;
+    height: 50px !important; /* Default is ~40px */
     min-height: 50px !important;
 }
 
 /* Month/year container */
 .flatpickr-months .flatpickr-month {
     height: 100% !important;
-    padding-top: 12px !important;
-    padding-bottom: 12px !important;
+    padding-top: 12px !important; /* Adds space at top */
+    padding-bottom: 12px !important; /* Adds space at bottom */
+}
+
+/* Main header container */
+.flatpickr-months {
+    display: flex !important;
+    align-items: center !important; /* Vertical center */
+    justify-content: center !important; /* Horizontal center */
+    height: 60px !important; /* Fixed height */
+    position: relative !important;
+}
+
+/* Month/year container */
+.flatpickr-month {
+    margin-top: -8px !important; /* Move upward */
+    padding: 0 !important;
+    height: auto !important;
 }
 
 /* Current month/year text */
 .flatpickr-current-month {
     display: inline-flex !important;
     align-items: center !important;
-    transform: translateY(-2px) !important;
+    transform: translateY(-2px) !important; /* Fine-tune vertical position */
     padding: 8px 15px !important;
     background: rgba(255,223,0,0.1) !important;
     border-radius: 4px !important;
@@ -1438,8 +1457,8 @@ input.error, select.error {
 
 /* Main month/year container */
 .flatpickr-current-month {
-    min-width: 220px !important;
-    padding: 12px 20px !important;
+    min-width: 220px !important;  /* Wider container */
+    padding: 12px 20px !important;  /* More internal space */
     height: auto !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -1451,7 +1470,7 @@ input.error, select.error {
 
 /* Month text */
 .flatpickr-current-month span.cur-month {
-    font-size: 1rem !important;
+    font-size: 1rem !important;  /* Your large text size */
     white-space: nowrap !important;
     margin-right: 8px !important;
 }
@@ -1465,7 +1484,7 @@ input.error, select.error {
 
 /* Header container */
 .flatpickr-months {
-    min-height: 70px !important;
+    min-height: 70px !important;  /* Taller header */
     padding: 0 15px !important;
     display: flex !important;
     align-items: center !important;
@@ -1474,14 +1493,14 @@ input.error, select.error {
 
 /* Month dropdown */
 .flatpickr-monthDropdown-month {
-    font-size: 1.2rem !important;
+    font-size: 1.2rem !important;  /* Match your text size */
     padding: 8px 15px !important;
 }
 
 /* Navigation arrows */
 .flatpickr-prev-month,
 .flatpickr-next-month {
-    padding: 15px !important;
+    padding: 15px !important;  /* Better touch target */
 }
 
 /* Ensure dropdown matches */
@@ -1510,22 +1529,28 @@ input.error, select.error {
 }
 
 .flatpickr-input:hover {
-    border-color: var(--dark-gold);
+  border-color: var(--dark-gold);
 }
 
 .flatpickr-icon {
-    transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .flatpickr-wrapper:hover .flatpickr-icon {
-    transform: translateY(-50%) scale(1.1);
-    color: var(--dark-gold);
+  transform: translateY(-50%) scale(1.1);
+  color: var(--dark-gold);
 }
 
+/* Add this to your styles.css */
 .flatpickr-calendar {
+    /* Background */
     background: linear-gradient(135deg, #020335 0%, #1a1a2e 100%) !important;
     backdrop-filter: blur(5px);
+    
+    /* Text */
     color: #FFDF00 !important;
+    
+    /* Borders */
     border: 1px solid var(--gold) !important;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3) !important;
     border-radius: 8px !important;
@@ -1625,9 +1650,11 @@ input.error, select.error {
     padding-right: 30px !important;
 }
 
+
+
 /* Month/year header container */
 .flatpickr-months .flatpickr-month {
-    font-size: 0.8rem !important;
+    font-size: 0.8rem !important; /* Base size */
 }
 
 /* Month name specifically */
@@ -1902,6 +1929,11 @@ footer {
     flex-shrink: 0;
 }
 
+@keyframes scrollText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
 /* Newsletter Modal */
 .newsletter-modal {
     position: fixed;
@@ -2077,26 +2109,26 @@ footer {
 
 @media (max-width: 992px) {
     .room-info {
-        position: relative !important;
-        transform: translateY(0) !important;
-        opacity: 1 !important;
-        background: transparent !important;
-        color: white !important;
+      position: relative !important;
+      transform: translateY(0) !important;
+      opacity: 1 !important;
+      background: transparent !important;
+      color: white !important;
     }
 
     .rooms-grid {
         grid-template-columns: 1fr;
         justify-items: center;
-    }
+      }
 
-    .room-card {
+      .room-card {
         width: 90%;
         max-width: none;
-        border-radius: 10px;
+      }
     }
     
     .room-card:hover .room-image {
-        filter: brightness(0.7) !important;
+      filter: brightness(0.7) !important;
     }
 
     .menu-toggle {
@@ -2161,34 +2193,19 @@ footer {
         height: 70vh;
         min-height: 500px;
     }
-    .experience-overlay {
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent) !important;
-      }
-      
-      .experience-overlay h3,
-      .experience-overlay p {
-        transform: translateY(0) !important;
-        opacity: 1 !important;
-      }
-      
-      .experience-nav {
-        display: flex !important;
-        justify-content: center;
-        gap: 15px;
-      }
-}
+
 
 @media (max-width: 768px) {
     .preloader {
-        background: radial-gradient(circle, var(--dark), var(--dark), var(--dark), var(--gold)) !important;
-    }
+          background: radial-gradient(circle,
+            var(--dark), var(--dark), var(--dark), var(--gold)
+            ) !important;
+        }
         
     .preloader-logo {
-        font-size: 2rem !important;
-        animation: shine 1.5s linear infinite !important;
-    }
+          font-size: 2rem !important;
+          animation: shine 1.5s linear infinite !important;
+        }
 
     section {
         padding: 60px 0;
@@ -2215,34 +2232,33 @@ footer {
     .room-image {
         height: 300px !important;
         width: 300px !important;
-    }
-    
-    .room-card {
+      }
+      
+      .room-card {
         max-height: none !important;
         margin-bottom: 30px;
         width: 85vw !important;
         flex: 0 0 85vw !important;
         margin: 0 7.5vw 30px !important;
         border-radius: 10px;
-    }
-    
-    .room-info {
+      }
+      
+      .room-info {
         padding: 20px !important;
-    }
-    
-    .room-card h3 {
+      }
+      
+      .room-card h3 {
         font-size: 1.4rem !important;
-    }
-    
-    .room-features {
+      }
+      
+      .room-features {
         gap: 10px !important;
         margin: 10px 0 !important;
-        justify-content: center;
-    }
-    
-    .room-features span {
+      }
+      
+      .room-features span {
         font-size: 0.8rem !important;
-    }
+      }
 
     .carousel-image {
         width: 100vh;
@@ -2357,74 +2373,74 @@ footer {
     }
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
     .flatpickr-calendar {
-        max-width: 320px !important;
-        font-size: 14px !important;
+      max-width: 320px !important;
+      font-size: 14px !important;
     }
     
     .flatpickr-month {
-        height: 50px !important;
-        padding: 5px 0 !important;
+      height: 50px !important;
+      padding: 5px 0 !important;
     }
     
     .flatpickr-current-month {
-        padding: 8px 10px !important;
-        min-width: 180px !important;
+      padding: 8px 10px !important;
+      min-width: 180px !important;
     }
     
     .flatpickr-weekdays {
-        height: 30px !important;
+      height: 30px !important;
     }
     
     .flatpickr-days {
-        width: 100% !important;
+      width: 100% !important;
     }
     
     .flatpickr-day {
-        height: 36px !important;
-        line-height: 36px !important;
-        margin: 2px !important;
-        max-width: calc(100%/7 - 4px) !important;
+      height: 36px !important;
+      line-height: 36px !important;
+      margin: 2px !important;
+      max-width: calc(100%/7 - 4px) !important;
     }
     
     .flatpickr-prev-month,
     .flatpickr-next-month {
-        padding: 10px !important;
+      padding: 10px !important;
     }
     
     /* Date picker group adjustments */
     .date-picker-group {
-        width: 100%;
-        margin-bottom: 15px;
+      width: 100%;
+      margin-bottom: 15px;
     }
     
     .form-row {
-        flex-direction: column;
+      flex-direction: column;
     }
-}
-
-/* Very small devices */
-@media (max-width: 480px) {
+  }
+  
+  /* Very small devices */
+  @media (max-width: 480px) {
     .flatpickr-calendar {
-        max-width: 280px !important;
+      max-width: 280px !important;
     }
     
     .flatpickr-day {
-        height: 32px !important;
-        line-height: 32px !important;
-        font-size: 12px !important;
+      height: 32px !important;
+      line-height: 32px !important;
+      font-size: 12px !important;
     }
     
     .flatpickr-monthDropdown-months {
-        font-size: 0.9rem !important;
-        padding-right: 25px !important;
+      font-size: 0.9rem !important;
+      padding-right: 25px !important;
     }
     
     .numInput.cur-year {
-        font-size: 0.9rem !important;
-        padding: 0 3px !important;
+      font-size: 0.9rem !important;
+      padding: 0 3px !important;
     }
 
     .room-card {
@@ -2432,31 +2448,31 @@ footer {
         border-radius: 5px;
         box-shadow: none;
         margin-bottom: 20px;
-    }
-    
-    .room-img {
+      }
+      
+      .room-img {
         height: 200px !important;
-    }
-    
-    .room-content h3 {
+      }
+      
+      .room-content h3 {
         font-size: 1.3rem !important;
-    }
-    
-    .btn-primary {
+      }
+      
+      .btn-primary {
         width: 100%;
         text-align: center;
-    }
-}
-
-/* Input field adjustments */
-@media (max-width: 576px) {
+      }
+  }
+  
+  /* Input field adjustments */
+  @media (max-width: 576px) {
     .flatpickr-input {
-        font-size: 14px !important;
-        padding-left: 35px !important;
+      font-size: 14px !important;
+      padding-left: 35px !important;
     }
     
     .flatpickr-icon {
-        font-size: 14px !important;
-        left: 10px !important;
+      font-size: 14px !important;
+      left: 10px !important;
     }
-}
+  }
