@@ -2237,7 +2237,6 @@ footer {
     .room-features {
         gap: 10px !important;
         margin: 10px 0 !important;
-        justify-content: center;
     }
     
     .room-features span {
